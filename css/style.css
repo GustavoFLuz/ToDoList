@@ -1,0 +1,210 @@
+
+
+:root{
+    --main-width: 960px;
+    --bg-color: #EEEEEE;
+    --font-color: #555; 
+    --main-color: #ABC8E2;
+    --secondary-color: #bed7ec;
+    --black-white: #000;
+    --font-family:  Arial, Helvetica, sans-serif;
+    --arrow:image('assets/icons/caret-down.svg');
+}
+.dark{
+    --bg-color: #111111;
+    --font-color: #AAA; 
+    --main-color: #1a578d;
+    --secondary-color: #4d7698;
+    --black-white: #000;
+}
+
+body{
+    background: var(--bg-color);
+    color: var(--font-color);
+    font-family: var(--font-family);
+}
+.main-container{
+    background-color: var(--main-color);
+    margin: auto;
+    margin-top: 50px;
+    padding-bottom: 50px; /* Remove */
+    border-radius: 50px;
+    width: var(--main-width);
+}
+/*
+    --- Header
+*/
+.header{
+    padding-top: 0.5rem;
+    padding-left: 2rem;
+    font-size: 1.3rem;
+}
+.title{
+    font-family: monospace;
+    font-style: normal;
+    font-weight: 700;
+}
+
+/*
+    ---- Form
+*/
+.form{
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.form > *{
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 15px;
+    margin: 10px 0px;
+    padding: 5px 20px;
+    color: var(--font-color1);
+    font-size: 1.5rem;
+    outline: none;
+    border: 1px solid transparent
+
+}
+.form > *::placeholder{
+    color: var(--font-color);
+    font-family: var(--font-family)
+}
+.form > *:hover{
+    border: 1px solid var(--black-white)
+}
+.input-text{
+    width: 50%;
+}
+.input-priority {
+    width: 25%;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    background-image: url('../assets/icons/caret-down.svg');
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position-x: 95%;
+    background-position-y: 50%;
+    background-color: var(--secondary-color);
+  }
+.input-submit{
+    width: 15%;
+    transition: 0.3s;
+}
+.input-submit:hover{
+    transform: scale(1.1);
+}
+.input-description{
+    width: 94%;
+    height: 4em;
+    resize: none;
+}
+/*
+    ---List of tasks
+*/
+.tasks-container{
+    width: calc(var(--main-width)*0.93);
+    height: calc(10rem + 15px);
+    padding:  0 30px;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+.tasks-header{
+    display: flex;
+    justify-content: space-between;
+}
+.tasks-header>h3{
+    padding: 0 20px;
+    margin: 0;
+}
+.tasks{
+    list-style: none;
+    margin: 0;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: calc(10rem + 15px);
+    padding: 5px 0px;
+}
+.tasks > li{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0px;
+}
+.tasks::-webkit-scrollbar {
+    width: 15px;
+}
+.tasks::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px;
+}
+.tasks::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 10px;
+}
+.task-name{
+    padding-left: 5%;
+    display: inline;
+    width: 50%;
+}
+.priority{
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+.task-completed{
+    background-image: url('../assets/icons/trash.svg');
+    background-size: 2em;
+    background-color: transparent;
+    width: 2em;
+    height: 2em;
+    margin-right: 5%;
+    margin-left: 20%;
+    border: none;
+    cursor: pointer;
+}
+/*
+    --- Dark mode Button
+*/
+.dark-mode-switch{
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+.dark-mode-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--main-color);
+    transition: .5s;
+    border-radius: 34px;
+  }
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}

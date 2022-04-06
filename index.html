@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="script.js" defer></script>
+    
+    <!--Toggle Dark Mode-->
+    <script defer>
+
+        function toggleDark(){
+            const body = document.body;
+            body.classList.toggle('dark');
+        }
+        
+    </script>
+</head>
+<body class="">
+    <div class="main-container">
+        <header class="header">
+            <h1 class="title">
+                To Do List
+            </h1>
+        </header>
+        <div class="form-container">
+            <form class="form" id="inputForm" onsubmit="submitTask()">
+                <input class="input-text" type="text" placeholder="Name">
+                <select class="input-priority" name="priority">
+                    <option value="green">Low</option>
+                    <option value="yellow">Medium</option>
+                    <option value="red">High</option>
+                </select>
+                <input class="input-submit" type="submit" value="Create">
+                <textarea class="input-description" placeholder="Description"></textarea>
+            </form>
+        </div>
+        <div class="tasks-container">
+            <div class="tasks-header">
+                <h3>Name</h3>
+                <h3></h3>
+                <h3></h3>
+                <h3>Priority</h3>
+                <h3>Completed</h3>
+            </div>
+                
+            <ul class="tasks" id="taskList">
+            </ul>
+                
+        </div>
+    </div>
+    
+    <label class="dark-mode-switch">
+        <input type="checkbox" onclick="toggleDark()">
+        <span class="slider"></span>
+      </label>
+      
+</body>
+</html>
