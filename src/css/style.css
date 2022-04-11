@@ -1,4 +1,6 @@
-
+/*
+    --- General configs
+*/
 
 :root{
     --main-width: 960px;
@@ -8,7 +10,6 @@
     --secondary-color: #bed7ec;
     --black-white: #000;
     --font-family:  Arial, Helvetica, sans-serif;
-    --arrow:image('assets/icons/caret-down.svg');
 }
 .dark{
     --bg-color: #111111;
@@ -83,7 +84,7 @@ body{
     -webkit-appearance: none;
     -moz-appearance: none;
     background: transparent;
-    background-image: url('../assets/icons/caret-down.svg');
+    background-image: url('../../assets/icons/caret-down.svg');
     background-repeat: no-repeat;
     background-size: 20px;
     background-position-x: 95%;
@@ -156,7 +157,7 @@ body{
     border: 1px solid black;
 }
 .task-completed{
-    background-image: url('../assets/icons/trash.svg');
+    background-image: url('../../assets/icons/trash.svg');
     background-size: 2em;
     background-color: transparent;
     width: 2em;
@@ -204,7 +205,88 @@ body{
     transition: .4s;
     border-radius: 50%;
 }
-
 input:checked + .slider:before {
     transform: translateX(26px);
+}
+.dark-mode-text{
+    position: absolute;
+    top: 1em;
+}
+.display-none{
+    display: none;
+}
+/*
+    ---Description Tooltip
+*/
+
+.tasks>li:hover .tooltip {
+    /* NEW */
+    display: block;
+  }
+  
+.tooltip {
+    font-size: 0.7em;
+    display: none;
+    background: var(--secondary-color);
+    margin-left: 2%;
+    padding: 10px;
+    position: absolute;
+    z-index: 1000;
+    width: calc(var(--main-width) * 0.5);
+    border-radius: 5rem;
+}
+
+/*
+    --- Responsiveness
+ */
+/* Medium */
+ @media (max-width: 992px){
+    :root{
+        --main-width: 720px;
+    }
+    
+}
+/* Small */
+@media (max-width: 768px){
+    :root{
+        --main-width: 540px;
+    }
+    .input-text{
+        width: 40%;
+    }
+    .input-submit{
+        width: 25%;
+    }
+    .tasks-header{
+        padding: 0;
+    }
+}
+/* Extra Small */
+@media (max-width: 576px){
+    :root{
+        --main-width: 100%;
+    }
+    
+    .form{
+        padding: 15px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .input-text{
+        width: 90%;
+    }
+    .input-priority{
+        width: 40%
+    }
+    .input-submit{
+        width: 50%;
+    }
+    .tasks-header{
+        display: none;
+    }
+    .dark-mode-switch{
+        display: block;
+    }
 }

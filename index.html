@@ -6,29 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDoList</title>
 
-    <link rel="stylesheet" href="css/style.css">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="src/css/style.css">
+    <script src="src/script/script.js" defer></script>
     
     <!--Toggle Dark Mode-->
-    <script defer>
-
-        function toggleDark(){
-            const body = document.body;
-            body.classList.toggle('dark');
-        }
-        
-    </script>
+    <script src="src/script/darkmode.js"defer></script>
 </head>
 <body class="">
     <div class="main-container">
         <header class="header">
             <h1 class="title">
-                To Do List
+                To Do List <span class="tooltip"> oi oi oi </span>
             </h1>
         </header>
         <div class="form-container">
             <form class="form" id="inputForm" onsubmit="submitTask()">
-                <input class="input-text" type="text" placeholder="Name">
+                <input class="input-text" type="text" placeholder="Name" required>
                 <select class="input-priority" name="priority">
                     <option value="green">Low</option>
                     <option value="yellow">Medium</option>
@@ -47,13 +40,13 @@
                 <h3>Completed</h3>
             </div>
                 
-            <ul class="tasks" id="taskList">
-            </ul>
-                
+            <ul class="tasks" id="taskList"></ul>                
         </div>
     </div>
     
     <label class="dark-mode-switch">
+        <h3 class="dark-mode-text" style="color: #555;">Light</h3>
+        <h3 class="dark-mode-text display-none" style="color: #AAA;">Dark</h3>
         <input type="checkbox" onclick="toggleDark()">
         <span class="slider"></span>
       </label>

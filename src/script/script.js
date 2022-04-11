@@ -24,25 +24,31 @@ function allStorage() {
 function printTask(taskObject){
 
     const list = document.getElementById('taskList');
+    const listItem = document.createElement('li');
+
 
     const taskName = document.createElement('div');
     taskName.classList.add('task-name');
     taskName.appendChild(document.createTextNode(taskObject.name));
+    listItem.appendChild(taskName);
 
+    if(taskObject.description != ''){
+        const taskDescription = document.createElement('span');
+        taskDescription.classList.add('tooltip');
+        taskDescription.appendChild(document.createTextNode(taskObject.description));
+        listItem.appendChild(taskDescription);
+    }
+    
     const priority = document.createElement('div');
     priority.classList.add('priority');
     priority.style.backgroundColor = taskObject.priority;
+    listItem.appendChild(priority);
 
     const button = document.createElement('button');
     button.classList.add('task-completed');
     button.setAttribute('id', taskObject.name);
     button.setAttribute('onclick', 'deleteTask(this)');
-
-    const listItem = document.createElement('li');
-    listItem.appendChild(taskName);
-    listItem.appendChild(priority);
     listItem.appendChild(button);
-
 
     list.appendChild(listItem);
 }
